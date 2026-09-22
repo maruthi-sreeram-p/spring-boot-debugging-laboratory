@@ -1,0 +1,107 @@
+# Backing services for the debugging lab.
+# Host ports are chosen so the lab never fights a locally installed server:
+#   MySQL 3307, PostgreSQL 5432, Redis 6380, Kafka 9092, RabbitMQ 5672/15672, Adminer 8081.
+# Override any of them with the *_HOST_PORT variables.
+
+name: debug-lab
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: lab-mysql
+    command: --default-authentication-plugin=mysql_native_password --log_bin_trust_function_creators=1
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-labroot}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-labdb}
+      MYSQL_USER: ${MYSQL_USER:-labuser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-labpass}
+    ports:
+      - "${MYSQL_HOST_PORT:-3307}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  postgres:
+    image: postgres:16
+    container_name: lab-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-labuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-labpass}
+      POSTGRES_DB: ${POSTGRES_DB:-labdb}
+    ports:
+      - "${POSTGRES_HOST_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    container_name: lab-redis
+    command: ["redis-server", "--appendonly", "no", "--maxmemory-policy", "noeviction"]
+    ports:
+      - "${REDIS_HOST_PORT:-6380}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  kafka:
+    image: apache/kafka:3.7.0
+    container_name: lab-kafka
+    ports:
+      - "${KAFKA_HOST_PORT:-9092}:9092"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      CLUSTER_ID: 5L6g3nShT-eMCtK--X86sw
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: lab-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-labuser}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-labpass}
+    ports:
+      - "${RABBITMQ_HOST_PORT:-5672}:5672"
+      - "${RABBITMQ_UI_PORT:-15672}:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  adminer:
+    image: adminer:latest
+    container_name: lab-adminer
+    ports:
+      - "${ADMINER_HOST_PORT:-8081}:8080"
+    depends_on:
+      - mysql
+      - postgres
+
+volumes:
+  mysql-data:
+  postgres-data:

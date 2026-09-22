@@ -1,0 +1,6 @@
+# Local developer profile. Matches the credentials in infra/docker-compose.yml.
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/hrdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: labuser
+    password: labpass

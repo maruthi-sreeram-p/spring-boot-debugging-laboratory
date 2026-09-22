@@ -1,0 +1,36 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-09-22T23:22:40.774+05:30  INFO 24460 --- [hr-directory-service] [           main] c.northgate.hr.HrDirectoryApplication    : Starting HrDirectoryApplication v3.2.1 using Java 22.0.2 with PID 24460 (D:\New folder\realistic projects bugs codes\03-employee-management\target\hr-directory-service-3.2.1.jar started by P.Abhiram in D:\New folder\realistic projects bugs codes\03-employee-management)
+2026-09-22T23:22:40.775+05:30 DEBUG 24460 --- [hr-directory-service] [           main] c.northgate.hr.HrDirectoryApplication    : Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-09-22T23:22:40.777+05:30  INFO 24460 --- [hr-directory-service] [           main] c.northgate.hr.HrDirectoryApplication    : The following 1 profile is active: "local"
+2026-09-22T23:22:42.218+05:30  INFO 24460 --- [hr-directory-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-22T23:22:42.313+05:30  INFO 24460 --- [hr-directory-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 4 JPA repository interfaces.
+2026-09-22T23:22:43.510+05:30  INFO 24460 --- [hr-directory-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-09-22T23:22:43.531+05:30  INFO 24460 --- [hr-directory-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-22T23:22:43.531+05:30  INFO 24460 --- [hr-directory-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-09-22T23:22:43.585+05:30  INFO 24460 --- [hr-directory-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-22T23:22:43.589+05:30  INFO 24460 --- [hr-directory-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2746 ms
+2026-09-22T23:22:43.977+05:30  INFO 24460 --- [hr-directory-service] [           main] com.zaxxer.hikari.HikariDataSource       : hr-pool - Starting...
+2026-09-22T23:22:44.247+05:30  INFO 24460 --- [hr-directory-service] [           main] com.zaxxer.hikari.pool.HikariPool        : hr-pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d92e8e2
+2026-09-22T23:22:44.248+05:30  INFO 24460 --- [hr-directory-service] [           main] com.zaxxer.hikari.HikariDataSource       : hr-pool - Start completed.
+2026-09-22T23:22:44.823+05:30  INFO 24460 --- [hr-directory-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-22T23:22:44.935+05:30  INFO 24460 --- [hr-directory-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-09-22T23:22:44.991+05:30  INFO 24460 --- [hr-directory-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-22T23:22:45.387+05:30  INFO 24460 --- [hr-directory-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-22T23:22:46.606+05:30  INFO 24460 --- [hr-directory-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-22T23:22:46.608+05:30  INFO 24460 --- [hr-directory-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-22T23:22:47.272+05:30  INFO 24460 --- [hr-directory-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name directoryUserDetailsService
+2026-09-22T23:22:47.768+05:30  INFO 24460 --- [hr-directory-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-09-22T23:22:48.396+05:30  INFO 24460 --- [hr-directory-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-09-22T23:22:48.409+05:30  INFO 24460 --- [hr-directory-service] [           main] c.northgate.hr.HrDirectoryApplication    : Started HrDirectoryApplication in 8.325 seconds (process running for 9.094)
+2026-09-22T23:22:48.573+05:30  INFO 24460 --- [hr-directory-service] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-22T23:22:48.573+05:30  INFO 24460 --- [hr-directory-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-22T23:22:48.573+05:30  INFO 24460 --- [hr-directory-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
