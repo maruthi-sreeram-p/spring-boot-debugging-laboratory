@@ -57,7 +57,7 @@ Every application reads its credentials from the environment and ships placehold
 |---|---|---|---|
 | 01 | [E-Commerce Order Management](01-ecommerce-order-management) | MySQL, Redis, Spring Security | 2/10 |
 | 02 | [Banking / Account Management](02-banking-account-management) | PostgreSQL, transactions, locking | 3/10 |
-| 03 | Employee Management | MySQL, JPA relationships, pagination | 3/10 |
+| 03 | [Employee Management](03-employee-management) | MySQL, JPA relationships, pagination | 3/10 |
 | 04 | Hospital Appointments | MySQL, scheduling, time handling | 5/10 |
 | 05 | Inventory Management | PostgreSQL, Redis, consistency | 5/10 |
 | 06 | Food Ordering | MySQL, RabbitMQ, async | 6/10 |

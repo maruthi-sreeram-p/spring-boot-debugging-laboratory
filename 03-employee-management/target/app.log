@@ -144,3 +144,253 @@
 2026-09-22T23:25:27.908+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
 2026-09-22T23:25:27.911+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
 2026-09-22T23:25:27.915+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
+2026-09-22T23:25:49.625+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-5] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:49.629+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-5] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:49.635+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-5] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:49.799+05:30 ERROR 13548 --- [hr-directory-service] [nio-8080-exec-5] c.n.hr.exception.GlobalExceptionHandler  : Unhandled exception while serving /api/employees
+
+org.springframework.data.mapping.PropertyReferenceException: No property 'fullName' found for type 'Employee'
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:94) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:455) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:431) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:384) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330) ~[na:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:366) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:344) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.jpa.repository.query.QueryUtils.toJpaOrder(QueryUtils.java:753) ~[spring-data-jpa-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.jpa.repository.query.QueryUtils.toOrders(QueryUtils.java:706) ~[spring-data-jpa-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:763) ~[spring-data-jpa-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:720) ~[spring-data-jpa-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:453) ~[spring-data-jpa-3.3.5.jar!/:3.3.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:173) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.3.5.jar!/:3.3.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.14.jar!/:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.3.5.jar!/:3.3.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy153.findAll(Unknown Source) ~[na:na]
+	at com.northgate.hr.service.EmployeeService.search(EmployeeService.java:47) ~[!/:3.2.1]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.14.jar!/:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.14.jar!/:6.1.14]
+	at com.northgate.hr.service.EmployeeService$$SpringCGLIB$$0.search(<generated>) ~[!/:3.2.1]
+	at com.northgate.hr.controller.EmployeeController.search(EmployeeController.java:64) ~[!/:3.2.1]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:213) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.3.4.jar!/:6.3.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.3.4.jar!/:6.3.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:113) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar!/:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+
+2026-09-22T23:25:49.927+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:49.933+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:49.938+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:50.104+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.department_id=? order by e1_0.last_name limit ?,?
+2026-09-22T23:25:50.118+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] c.northgate.hr.service.EmployeeService   : Directory search returned 13 of 13 employees
+2026-09-22T23:25:50.119+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
+2026-09-22T23:25:50.125+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:50.252+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-8] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:50.254+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-8] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:50.257+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-8] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:50.416+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-8] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.department_id=? or lower(e1_0.first_name) like ? escape '' or lower(e1_0.last_name) like ? escape '' or lower(e1_0.email) like ? escape '' order by e1_0.last_name limit ?,?
+2026-09-22T23:25:50.426+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-8] c.northgate.hr.service.EmployeeService   : Directory search returned 13 of 13 employees
+2026-09-22T23:25:50.427+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-8] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
+2026-09-22T23:25:50.432+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-8] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:50.556+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:50.559+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:50.564+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:50.708+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where 1=1 order by e1_0.last_name limit ?,?
+2026-09-22T23:25:50.718+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select count(e1_0.id) from employees e1_0 where 1=1
+2026-09-22T23:25:50.726+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] c.northgate.hr.service.EmployeeService   : Directory search returned 1 of 60 employees
+2026-09-22T23:25:50.726+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
+2026-09-22T23:25:50.737+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:50.880+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:50.884+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:50.888+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:51.016+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:51.025+05:30  INFO 13548 --- [hr-directory-service] [nio-8080-exec-1] c.northgate.hr.service.EmployeeService   : Employee NG-1044 marked as terminated
+2026-09-22T23:25:51.028+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : update employees set department_id=?,email=?,employee_code=?,employment_status=?,first_name=?,hire_date=?,job_title=?,last_name=?,manager_id=?,phone=?,salary=? where id=?
+2026-09-22T23:25:51.262+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:51.266+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:51.271+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:51.486+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:51.490+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:51.494+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:51.626+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-7] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:51.755+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-6] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:51.761+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-6] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:51.766+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-6] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:52.149+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:52.152+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:52.156+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:52.343+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-9] org.hibernate.SQL                        : select e1_0.id from employees e1_0 where e1_0.email=? limit ?
+2026-09-22T23:25:52.451+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:52.456+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:52.459+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:52.583+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 order by d1_0.name
+2026-09-22T23:25:52.593+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select count(e1_0.id) from employees e1_0 where e1_0.department_id=?
+2026-09-22T23:25:52.606+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select count(e1_0.id) from employees e1_0 where e1_0.department_id=?
+2026-09-22T23:25:52.612+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select count(e1_0.id) from employees e1_0 where e1_0.department_id=?
+2026-09-22T23:25:52.616+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select count(e1_0.id) from employees e1_0 where e1_0.department_id=?
+2026-09-22T23:25:52.620+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-1] org.hibernate.SQL                        : select count(e1_0.id) from employees e1_0 where e1_0.department_id=?
+2026-09-22T23:25:52.734+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:52.738+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:52.743+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:53.510+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select count(*) from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:53.521+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.manager_id=? order by e1_0.last_name
+2026-09-22T23:25:53.526+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
+2026-09-22T23:25:53.529+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-3] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:53.671+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select au1_0.id,au1_0.created_at,au1_0.employee_id,au1_0.enabled,au1_0.password_hash,au1_0.username from users au1_0 where au1_0.username=?
+2026-09-22T23:25:53.674+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:53.681+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2026-09-22T23:25:53.818+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
+2026-09-22T23:25:53.824+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select d1_0.id,d1_0.code,d1_0.location,d1_0.name from departments d1_0 where d1_0.id=?
+2026-09-22T23:25:53.827+05:30 DEBUG 13548 --- [hr-directory-service] [nio-8080-exec-4] org.hibernate.SQL                        : select e1_0.id,e1_0.created_at,e1_0.department_id,e1_0.email,e1_0.employee_code,e1_0.employment_status,e1_0.first_name,e1_0.hire_date,e1_0.job_title,e1_0.last_name,e1_0.manager_id,e1_0.phone,e1_0.salary from employees e1_0 where e1_0.id=?
