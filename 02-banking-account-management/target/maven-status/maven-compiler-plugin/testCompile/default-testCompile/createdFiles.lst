@@ -1,0 +1,3 @@
+com\meridian\banking\mapper\AccountMapperTest.class
+com\meridian\banking\repository\AccountRepositoryTest.class
+com\meridian\banking\mapper\TransactionMapperTest.class

@@ -1,0 +1,6 @@
+# Local developer profile. Matches the credentials in infra/docker-compose.yml.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bankdb
+    username: labuser
+    password: labpass
