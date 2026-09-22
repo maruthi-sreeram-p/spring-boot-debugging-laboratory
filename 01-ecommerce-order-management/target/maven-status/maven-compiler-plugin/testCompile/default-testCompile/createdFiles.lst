@@ -1,0 +1,3 @@
+com\northwind\shop\mapper\ProductMapperTest.class
+com\northwind\shop\service\PricingCalculatorTest.class
+com\northwind\shop\repository\CustomerRepositoryTest.class
