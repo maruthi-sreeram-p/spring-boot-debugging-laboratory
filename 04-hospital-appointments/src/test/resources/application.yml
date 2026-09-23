@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:clinictest;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+
+clinic:
+  timezone: Asia/Kolkata
+  booking:
+    minimum-notice-minutes: 30
+    maximum-days-ahead: 60
+  cancellation:
+    minimum-notice-hours: 2
+  no-show:
+    grace-minutes: 20
+    sweep-cron: "0 */5 * * * *"
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    com.harbourview.clinic: INFO
