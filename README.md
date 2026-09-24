@@ -58,16 +58,16 @@ Every application reads its credentials from the environment and ships placehold
 | 01 | [E-Commerce Order Management](01-ecommerce-order-management) | MySQL, Redis, Spring Security | 2/10 |
 | 02 | [Banking / Account Management](02-banking-account-management) | PostgreSQL, transactions, locking | 3/10 |
 | 03 | [Employee Management](03-employee-management) | MySQL, JPA relationships, pagination | 3/10 |
-| 04 | Hospital Appointments | MySQL, scheduling, time handling | 5/10 |
-| 05 | Inventory Management | PostgreSQL, Redis, consistency | 5/10 |
-| 06 | Food Ordering | MySQL, RabbitMQ, async | 6/10 |
-| 07 | Job Portal | MySQL, Criteria API, ownership rules | 6/10 |
-| 08 | Payment Processing Simulation | MySQL, retries, idempotency | 7/10 |
-| 09 | Notification Service | PostgreSQL, RabbitMQ topology, DLQ | 7/10 |
-| 10 | Order Event Processing | PostgreSQL, Kafka, offsets | 8/10 |
-| 11 | Product Catalog + Redis | PostgreSQL, Spring Cache, serialization | 8/10 |
-| 12 | Auth & Authorization Platform | PostgreSQL, JWT, Spring Security 6 | 8/10 |
-| 13 | Library / Digital Lending | MySQL, concurrency, locking | 9/10 |
+| 04 | [Hospital Appointments](04-hospital-appointments) | MySQL, scheduling, time handling | 5/10 |
+| 05 | [Inventory Management](05-inventory-management) | PostgreSQL, Redis, consistency | 5/10 |
+| 06 | [Food Ordering](06-food-ordering) | MySQL, RabbitMQ, async | 6/10 |
+| 07 | [Job Portal](07-job-portal) | MySQL, Criteria API, ownership rules | 6/10 |
+| 08 | [Payment Processing Simulation](08-payment-processing) | MySQL, retries, idempotency | 7/10 |
+| 09 | [Notification Service](09-notification-service) | PostgreSQL, RabbitMQ topology, DLQ | 7/10 |
+| 10 | [Order Event Processing](10-order-event-processing) | PostgreSQL, Kafka, offsets | 8/10 |
+| 11 | [Product Catalog + Redis](11-product-catalog-redis) | PostgreSQL, Spring Cache, key design, serialization | 8/10 |
+| 12 | [Auth & Authorization Platform](12-auth-platform) | PostgreSQL, Redis, JWT, Spring Security 6 | 8/10 |
+| 13 | [Library / Digital Lending](13-library-lending) | MySQL, concurrency, locking, transactions | 9/10 |
 | 14 | Logistics / Delivery | PostgreSQL, Kafka + RabbitMQ | 9/10 |
 | 15 | Enterprise Order Platform | everything, at once | 10/10 |
 
