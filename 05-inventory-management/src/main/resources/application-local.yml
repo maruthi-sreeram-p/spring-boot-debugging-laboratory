@@ -1,0 +1,10 @@
+# Local developer profile. Matches the credentials in infra/docker-compose.yml.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/inventorydb
+    username: labuser
+    password: labpass
+  data:
+    redis:
+      host: localhost
+      port: 6380
