@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:foodtest;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: labuser
+    password: labpass
+
+spicebox:
+  messaging:
+    exchange: food.orders
+    placed-routing-key: order.placed
+    ready-routing-key: order.ready-for-pickup
+    analytics-queue: analytics.orders
+    dispatch-queue: delivery.dispatch
+  ordering:
+    delivery-fee: 39.00
+    free-delivery-threshold: 499.00
+    minimum-order-value: 99.00
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    com.spicebox.ordering: INFO
