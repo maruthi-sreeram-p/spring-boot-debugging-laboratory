@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:portaltest;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+
+hirestack:
+  search:
+    default-page-size: 20
+    max-page-size: 50
+  applications:
+    max-open-per-candidate: 25
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    com.hirestack.portal: INFO
