@@ -1,0 +1,2 @@
+com\ledgerline\payments\repository\PaymentRepositoryTest.class
+com\ledgerline\payments\service\SimulatedPaymentGatewayTest.class

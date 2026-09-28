@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:paytest;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+
+payments:
+  gateway:
+    name: simulator
+    slow-response-millis: 10
+    approval-prefix: SIMGW
+  retry:
+    max-attempts: 3
+    backoff-millis: 10
+  reconciliation:
+    stale-after-minutes: 5
+    cron: "0 */2 * * * *"
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    com.ledgerline.payments: INFO
