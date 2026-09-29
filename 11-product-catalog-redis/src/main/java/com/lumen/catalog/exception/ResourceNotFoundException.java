@@ -1,0 +1,8 @@
+package com.lumen.catalog.exception;
+
+public class ResourceNotFoundException extends RuntimeException {
+
+    public ResourceNotFoundException(String resource, Object identifier) {
+        super(resource + " not found: " + identifier);
+    }
+}

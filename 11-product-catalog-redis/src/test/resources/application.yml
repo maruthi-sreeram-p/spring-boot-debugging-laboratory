@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:catalogtest;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+  data:
+    redis:
+      host: localhost
+      port: 6380
+  cache:
+    type: none
+
+lumen:
+  cache:
+    key-prefix: "catalog:"
+    product-ttl-minutes: 30
+    listing-ttl-minutes: 15
+    search-ttl-minutes: 5
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    com.lumen.catalog: INFO

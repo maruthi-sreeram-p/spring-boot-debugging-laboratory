@@ -1,0 +1,10 @@
+# Local developer profile. Matches the services in infra/docker-compose.yml.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogdb
+    username: labuser
+    password: labpass
+  data:
+    redis:
+      host: localhost
+      port: 6380
