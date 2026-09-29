@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:eventtest;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+  kafka:
+    bootstrap-servers: localhost:9092
+
+riverstone:
+  topics:
+    orders-created: orders.created
+    inventory-events: inventory.events
+    partitions: 3
+  groups:
+    inventory: inventory-service
+    downstream: order-pipeline
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    com.riverstone.orderevents: INFO

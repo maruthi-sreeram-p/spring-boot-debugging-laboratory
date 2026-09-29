@@ -1,0 +1,8 @@
+# Local developer profile. Matches the services in infra/docker-compose.yml.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ordereventsdb
+    username: labuser
+    password: labpass
+  kafka:
+    bootstrap-servers: localhost:9092
