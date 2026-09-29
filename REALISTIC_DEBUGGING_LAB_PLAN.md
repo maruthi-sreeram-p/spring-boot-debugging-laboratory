@@ -1,6 +1,6 @@
 # Realistic Java Backend Debugging Laboratory — Build Plan
 
-> **Purpose of this file.** This is the construction plan for the lab, not a hint sheet.
+> **Purpose of this file.** *** This is the construction plan for the lab, not a hint sheet.
 > It describes *what each project is*, *how it is built*, and *which debugging muscles it
 > trains*. It deliberately does **not** describe the defects, their locations, or their
 > categories. Each project carries its own `DEBUGGING_GUIDE.md` (symptoms + graded hints)
