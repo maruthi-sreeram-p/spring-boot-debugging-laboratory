@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.pulsesend.notifications.repository.NotificationRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.107 s -- in com.pulsesend.notifications.repository.NotificationRepositoryTest

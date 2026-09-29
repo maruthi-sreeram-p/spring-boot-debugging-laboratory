@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:notifytest;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: labuser
+    password: labpass
+
+pulsesend:
+  messaging:
+    exchange: notifications.exchange
+    dead-letter-exchange: notifications.dlx
+    email-queue: notifications.email
+    sms-queue: notifications.sms
+    in-app-queue: notifications.inapp
+    dead-letter-queue: notifications.dlq
+    routing-prefix: notify
+  delivery:
+    max-attempts: 5
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    com.pulsesend.notifications: INFO

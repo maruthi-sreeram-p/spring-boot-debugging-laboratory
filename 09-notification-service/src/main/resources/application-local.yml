@@ -1,0 +1,11 @@
+# Local developer profile. Matches the credentials in infra/docker-compose.yml.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notificationdb
+    username: labuser
+    password: labpass
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: labuser
+    password: labpass
