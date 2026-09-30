@@ -1,0 +1,14 @@
+# Local developer profile. Matches the services in infra/docker-compose.yml.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/authdb
+    username: labuser
+    password: labpass
+  data:
+    redis:
+      host: localhost
+      port: 6380
+
+aegis:
+  jwt:
+    signing-secret: local-development-signing-secret-do-not-use-anywhere-else

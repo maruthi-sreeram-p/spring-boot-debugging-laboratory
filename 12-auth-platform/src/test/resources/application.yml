@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:identitydb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: never
+
+aegis:
+  jwt:
+    issuer: aegis-identity
+    signing-secret: test-signing-secret-that-is-long-enough-for-hs256
+    access-token-minutes: 15
+    refresh-token-days: 14
+  denylist:
+    key-prefix: "aegis:denylist:"
+  lockout:
+    max-failed-attempts: 5

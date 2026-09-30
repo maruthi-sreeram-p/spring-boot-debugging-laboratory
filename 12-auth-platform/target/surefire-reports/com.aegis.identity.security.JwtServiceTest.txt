@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.aegis.identity.security.JwtServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.494 s -- in com.aegis.identity.security.JwtServiceTest

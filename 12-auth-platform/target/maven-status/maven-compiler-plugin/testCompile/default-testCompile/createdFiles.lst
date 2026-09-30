@@ -1,0 +1,2 @@
+com\aegis\identity\repository\AccountRepositoryTest.class
+com\aegis\identity\security\JwtServiceTest.class

@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: identity-platform
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:YOUR_DATABASE_HOST}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:authdb}
+    username: ${POSTGRES_USER:YOUR_DATABASE_USER}
+    password: ${POSTGRES_PASSWORD:YOUR_DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 12
+      pool-name: identity-pool
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+
+  sql:
+    init:
+      mode: always
+      continue-on-error: false
+
+  data:
+    redis:
+      host: ${REDIS_HOST:YOUR_REDIS_HOST}
+      port: ${REDIS_PORT:6379}
+      timeout: 2s
+
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: always
+    include-binding-errors: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+aegis:
+  jwt:
+    issuer: aegis-identity
+    signing-secret: ${JWT_SIGNING_SECRET:YOUR_JWT_SIGNING_SECRET_AT_LEAST_32_CHARACTERS}
+    access-token-minutes: 15
+    refresh-token-days: 14
+  denylist:
+    key-prefix: "aegis:denylist:"
+  lockout:
+    max-failed-attempts: 5
+
+logging:
+  level:
+    com.aegis.identity: DEBUG
+    org.springframework.security: INFO
