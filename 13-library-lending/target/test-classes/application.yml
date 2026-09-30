@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:librarydb;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: never
+
+athenaeum:
+  circulation:
+    standard-loan-days: 14
+    premium-loan-days: 21
+    staff-loan-days: 28
+    standard-loan-limit: 4
+    premium-loan-limit: 8
+    staff-loan-limit: 12
+    max-renewals: 2
+    hold-shelf-hours: 48
+  fines:
+    daily-rate: 5.00
+    maximum: 500.00
+    accrual-cron: "0 0 2 * * *"
