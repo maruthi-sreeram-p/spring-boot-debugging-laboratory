@@ -116,3 +116,5 @@ actual output of this lab.
 Nothing is committed or pushed. Nothing is deployed. No real payment provider is contacted
 — project 08 simulates one in-process. No API keys are obtained and no credentials are
 embedded; every secret is a placeholder you fill in yourself.
+
+.........
